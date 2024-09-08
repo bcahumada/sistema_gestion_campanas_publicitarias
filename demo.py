@@ -1,4 +1,4 @@
-from campana import Campana
+from campaña import Campana
 from anuncio import Anuncio, Video, Display, Social
 from error import LargoExcedidoException, SubTipoInvalidoException
 from datetime import date
@@ -136,7 +136,7 @@ def agregar_anuncio(campana):
     subtipos_str = Anuncio.mostrar_formatos(tipo_anuncio_nombre)
     while True:
         sub_tipo = input(f"Elige el subtipo del anuncio:\n{subtipos_str}Subtipo: ")
-        if sub_tipo:  # Verificar si el subtipo no está vacío
+        if sub_tipo:
             break
         print("Error: Debes elegir un subtipo.")
 
@@ -289,10 +289,10 @@ def modificar_anuncio(campana):
 
 def main():
     """Función principal del programa."""
-    campanas = [] # Lista para almacenar las campañas
+    campanas = []  # Lista para almacenar las campañas
 
     while True:
-        print("\n--- Menú Principal ---")
+        print("\n--- Sistema Gestión Campañas Publicitarias ---\nMenú Principal")
         print("a. Crear campaña")
         print("b. Mostrar campaña")
         print("c. Modificar campaña")
@@ -300,29 +300,35 @@ def main():
 
         opcion = input("Elige una opción: ").lower()
 
-        if opcion == 'a':
-            crear_campana(campanas) # Pasar la lista de campañas a la función
-        elif opcion == 'b':
-            mostrar_campanas(campanas) # Mostrar la lista de campañas
-            if campanas:
-                while True:
-                    try:
-                        opcion_campana = int(input("Selecciona el número de la campaña a mostrar: "))
-                        if 1 <= opcion_campana <= len(campanas):
-                            mostrar_campana(campanas[opcion_campana - 1])
-                            break
-                        else:
-                            print("Opción inválida. Intenta de nuevo.")
-                    except ValueError:
-                        print("Ingresa un número válido.")
-        elif opcion == 'c':
-            modificar_campana(campanas) # Pasar la lista de campañas a la función
-        elif opcion == 'd':
-            print("¡Hasta luego!")
-            break
-        else:
-            print("Opción inválida. Intenta de nuevo.")
+        try:
+            if opcion == 'a':
+                crear_campana(campanas) 
+            elif opcion == 'b':
+                mostrar_campanas(campanas)
+                if campanas:
+                    while True:
+                        try:
+                            opcion_campana = int(input("Selecciona el número de la campaña a mostrar: "))
+                            if 1 <= opcion_campana <= len(campanas):
+                                mostrar_campana(campanas[opcion_campana - 1])
+                                break
+                            else:
+                                print("Opción inválida. Intenta de nuevo.")
+                        except ValueError:
+                            print("Ingresa un número válido.")
+            elif opcion == 'c':
+                modificar_campana(campanas) 
+            elif opcion == 'd':
+                print("¡Gracias por usar el sistema de gestión de campañas. Hasta luego!")
+                break
+            else:
+                print("Opción inválida. Intenta de nuevo.")
 
+        except (LargoExcedidoException, SubTipoInvalidoException) as e:
+            print(f"Error: {e}")
+            # Escribe el mensaje de la excepción en el archivo error.log
+            with open("error.log", "a") as f:
+                f.write(f"{date.today()} - {type(e).__name__}: {e}\n")
 
 if __name__ == "__main__":
     main()

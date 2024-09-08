@@ -1,15 +1,16 @@
 # Sistema de Gestión de Campañas Publicitarias
 
-Este proyecto implementa un sistema básico para gestionar campañas publicitarias, incluyendo la creación de campañas, la adición y modificación de anuncios, y la validación de datos.
+Este proyecto implementa un sistema básico para gestionar campañas publicitarias, incluyendo la creación de campañas, la adición y modificación de anuncios, y la validación de datos. El sistema ofrece una interfaz de usuario amigable a través de la consola para interactuar con las diferentes funcionalidades.
 
 
 ## Características
 
-* Creación de campañas con nombre, fecha de inicio y fecha de término.
-* Adición de anuncios de diferentes tipos (Video, Display, Social) con subtipos específicos.
-* Modificación de los atributos de las campañas y los anuncios.
-* Validación de datos de entrada para evitar errores.
-* Pruebas unitarias para asegurar la calidad del código.
+* **Creación de campañas:** Permite crear campañas publicitarias con nombre, fecha de inicio y fecha de término opcionales.
+* **Gestión de anuncios:**  Permite agregar, modificar y eliminar anuncios de diferentes tipos (Video, Display, Social) con subtipos específicos.
+* **Validación de datos:** Implementa validaciones para los datos de entrada del usuario, incluyendo nombres, fechas y URLs, para evitar errores.
+* **Manejo de errores:**  Utiliza excepciones personalizadas para manejar errores y registrarlos en un archivo de registro (`error.log`).
+* **Pruebas unitarias:** Incluye pruebas unitarias para las clases principales del sistema, asegurando la calidad del código.
+* **Interfaz de usuario:**  Ofrece una interfaz de usuario a través de la consola, con menús interactivos y mensajes amigables para el usuario.
 
 
 ## Instalación
@@ -22,7 +23,7 @@ Este proyecto implementa un sistema básico para gestionar campañas publicitari
 Para ejecutar el programa, abre una terminal en la carpeta del proyecto y ejecuta el comando:
 
 ```bash
-python main.py
+python demo.py
 ```
 
 ### Pruebas

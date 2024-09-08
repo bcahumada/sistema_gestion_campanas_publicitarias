@@ -111,7 +111,7 @@ class Anuncio(ABC):
             subtipos = Anuncio.SUB_TIPOS.get(tipo_anuncio)
             if subtipos:
                 formatos_str += f"De {tipo_anuncio}: "
-                # Iteramos sobre los valores del diccionario subtipos
+                # Itera sobre los valores del diccionario subtipos
                 for i, subtipo in enumerate(subtipos[tipo_anuncio]):
                     formatos_str += f"'{subtipo}'"
                     if i < len(subtipos[tipo_anuncio]) - 1:
@@ -121,7 +121,7 @@ class Anuncio(ABC):
         else:
             for formato, subtipos in Anuncio.SUB_TIPOS.items():
                 formatos_str += f"De {formato}: "
-                # Iteramos sobre los valores del diccionario subtipos
+                # Itera sobre los valores del diccionario subtipos
                 for i, subtipo in enumerate(subtipos[formato]):
                     formatos_str += f"'{subtipo}'"
                     if i < len(subtipos[formato]) - 1:

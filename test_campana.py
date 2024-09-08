@@ -40,7 +40,7 @@ class TestCampana(unittest.TestCase):
     def test_agregar_anuncio(self):
         """Prueba que se pueda agregar un anuncio a la campaña."""
         campana = Campana("Campaña de prueba")
-        anuncio = Anuncio()  # Puedes usar una instancia de una subclase de Anuncio
+        anuncio = Anuncio()  # posible usar una instancia de una subclase de Anuncio
         campana.anuncios.append(anuncio)
         self.assertIn(anuncio, campana.anuncios)
 
